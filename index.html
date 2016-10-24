@@ -22,14 +22,34 @@
     
     
     <div ng-controller="listdata">
+        
         <ul>
             <li ng-repeat="data in tempdata">
-                {{data.color}} -{{data.value}}<br>{{data.content.pass}}
+                {{data.color}} -{{data.value}}<br/>
+               
+                <ul>
+                    <li ng-repeat="album in data.batter">{{album.id}} / {{album.name}}</li>
+                </ul>
+                <button class="btn-s" ng-click="listdata($index)">Add</button>
+                
             </li>
         
         </ul>
-    
+       
     </div>
+   
+    
+    <!--
+    <div ng-controller="ListCtrl">
+        <ul>
+            <li ng-repeat="artist in artists">{{artist.name}}</li>
+        </ul>
+        <ul ng-repeat="artist in artists" ng-show="isVisible(artist.name)">
+            <li ng-repeat="album in artist.albums">{{album.title}}</li>
+        </ul>
+    </div>
+
+    -->
 
 <!--<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script> -->
 <script src="js/angular.js" type="text/javascript"></script>
