@@ -103,11 +103,14 @@ app.controller("listdata",["$scope",function($scope){
     
     $scope.listData=function(index){        
        $scope.cart.push($scope.tempdata[index]);
+        $scope.tempdata[index].disable=true;    
     };
     
     $scope.removeData=function(index){
-        alert(index);
+        
+        $scope.cart[index].disable=false;
         $scope.cart.splice(index,1);
+        
     };   
     
     
