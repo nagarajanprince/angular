@@ -98,4 +98,25 @@ app.controller("listdata",["$scope",function($scope){
         ]
 	}	
 ];
+    
+    $scope.cart=[];
+    
+    $scope.listData=function(index){        
+       $scope.cart.push($scope.tempdata[index]);
+    };
+    
+    $scope.removeData=function(index){
+        alert(index);
+        $scope.cart.splice(index,1);
+    };   
+    
+    
+    $scope.totalData=function(){
+        var total=0;
+        angular.forEach($scope.cart,function(value){
+            total=total+value.color;
+        });
+                        return total;
+    }
+    
 }]);

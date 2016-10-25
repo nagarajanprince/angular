@@ -23,6 +23,12 @@
     
     <div ng-controller="listdata">
         
+        <div>{{totalData()}}</div>
+        
+        <ol>
+            <li ng-repeat="item in cart">{{item.value}} <button type="submit" ng-click="removeData($index)">&times;</button></li>
+        </ol>
+        
         <ul>
             <li ng-repeat="data in tempdata">
                 {{data.color}} -{{data.value}}<br/>
@@ -30,11 +36,13 @@
                 <ul>
                     <li ng-repeat="album in data.batter">{{album.id}} / {{album.name}}</li>
                 </ul>
-                <button class="btn-s" ng-click="listdata($index)">Add</button>
+                <button class="btn-s" ng-click="listData($index)">Add</button>
                 
             </li>
         
         </ul>
+        
+        
        
     </div>
    
