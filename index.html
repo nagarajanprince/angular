@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="mymodule">
+<html ng-app="mymodule" class="ng-cloak">
 <head>
     <title>Angular VL</title>
+	<style>
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		  display: none !important;
+		}
+	</style>
 </head>
 <body>
 
@@ -10,7 +15,7 @@
     
 <logo></logo>    
     
-    <div ng-controller="mycontroll">
+    <div ng-controller="mycontroll" >
         {{message}}
         
         <form ng-submit="postdata()">
