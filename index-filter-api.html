@@ -1,0 +1,76 @@
+<html ng-app="data-app">
+    <head>
+        <title>Tech-Tree</title>
+        <script src="js/angular.js" type="text/javascript"></script>
+        <style>            
+            table{
+                border: 1px solid #333;
+                border-collapse: collapse;
+                width: 65%;
+            }    
+            tr,td{
+                border: 1px solid #333;padding: 5px;
+            }
+            .odd{
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+	
+		
+        
+        <div class="pagewrap" ng-controller="data-api">
+            <mytitle></mytitle>
+
+            <div>
+		      <input type="text" ng-model="fiels" value="userId" ng-init="fiels=10" placeholder="Enter userId" /><br/>
+              {{fiels}}<br/><span ng-bind="fiels"></span><br/>
+              <input type="text" ng-model="fid" value="" placeholder="Enter ID" /><br/>
+
+              <input type="submit" ng-click="datafetch()" value="submit"/>
+            </div>
+                <table>
+                    <tbody>
+                        <tr ng-repeat="x in  data | filter:{userId:fiels,id:fid}" ng-class-odd="'odd'">
+                            <td rowspan="{{x.userId.length}}">{{x.userId}}</td>
+                            <td>{{x.id}}</td>
+                            <td>{{x.title}}</td>
+                            <td>{{x.body}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </div>
+        
+        <script>
+            var app=angular.module("data-app",[]);            
+            app.controller("data-api",function($scope,$http){ 
+                          
+                $http.get("http://jsonplaceholder.typicode.com/posts/").success(function(res){
+                    $scope.data = res;
+                });
+
+                console.log($scope.fiels +"::"+$scope.fid);
+
+                $scope.$watchGroup(['fiels','fid'],function(){
+                     console.log($scope.fiels +"::"+$scope.fid);
+                });
+                    
+                $scope.datafetch = function(){
+                    console.log($scope.fiels +"::"+$scope.fid);
+                }
+
+            });
+
+             app.directive('mytitle',function(){
+                return{
+                    restrict:'EA',
+                    template:function(e,attr){
+                        return '<label class="title">Welcome API Call</span>';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
