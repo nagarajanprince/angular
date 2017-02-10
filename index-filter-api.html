@@ -51,14 +51,12 @@
                     $scope.data = res;
                 });
 
-                console.log($scope.fiels +"::"+$scope.fid);
-
                 $scope.$watchGroup(['fiels','fid'],function(){
                      console.log($scope.fiels +"::"+$scope.fid);
                 });
                     
                 $scope.datafetch = function(){
-                    console.log($scope.fiels +"::"+$scope.fid);
+                    console.log($scope.fiels +"::"+$scope.fid);					
                 }
 
             });
