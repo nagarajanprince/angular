@@ -1,2 +1,5 @@
 #Reffernce link
 https://gist.github.com/demisx/9605099
+
+
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/
