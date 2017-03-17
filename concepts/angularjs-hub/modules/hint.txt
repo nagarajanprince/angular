@@ -6,3 +6,5 @@ http://tutorials.jenkov.com/angularjs/watch-digest-apply.html
 
 https://www.sitepoint.com/api-calls-angularjs-http-service/
 https://plnkr.co/edit/YSTWwS?p=preview
+
+https://www.sitepoint.com/practical-guide-angularjs-directives/
