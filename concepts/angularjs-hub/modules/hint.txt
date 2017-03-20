@@ -8,3 +8,8 @@ https://www.sitepoint.com/api-calls-angularjs-http-service/
 https://plnkr.co/edit/YSTWwS?p=preview
 
 https://www.sitepoint.com/practical-guide-angularjs-directives/
+
+
+
+
+http://sivalabs.in/2014/09/angularjs-introducing-modules-controllers-services/
