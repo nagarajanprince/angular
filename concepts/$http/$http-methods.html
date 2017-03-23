@@ -2,19 +2,62 @@
     <head>
         <title>$Http Methods</title>
         <link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .blockres {
+                width: 500px;
+                max-height: 500px;
+                overflow: auto;
+                display: inline-block;
+                float: left;
+                padding:10px;
+            }
+            .searchid label,
+            .searchid input{
+                float: right;
+            }
+            .searchid label{
+                margin: 5px 0;
+            }
+            .searchid input {
+                padding: 5px;
+                margin-left: 10px;
+                font-size: 13px;
+            }
+            .searchid:after,
+            .searchid:before{
+                clear: both;
+                content: '';
+                display: block;
+            }
+        </style>
     </head>    
     <body>
         <div class="container">        
      
         <div class="" ng-app="mainapp">
-            <div class="" ng-controller="maincontroller">
-                <h4> Listing  </h4>
+            <div class="blockres" ng-controller="maincontroller">
+                <h4>Listing Resources</h4>
+                <div class="searchid">
+                <input type="text" value=""  placeholder="Enter the value 1 to 10" ng-model="UID"/><label>User ID :</label>
+                </div>
                 <ul>
-                    <li ng-repeat="data in datalist">
+                    <li ng-repeat="data in datalist | filter:{userId:UID}">
                         <div>User ID : {{data.userId}}<br/>ID : {{data.id}}<br/>Title : <a href="#" ng-click="showdata($index)"> {{data.title}} </a><br/>Content : {{data.body}}</div>
                     </li>
                 </ul>
-            </div>        
+            </div> 
+            <div class="blockres" ng-controller="maincontroller">
+                <h4>Show Resources</h4>
+                
+                <span>body : {{serdata}}</span>
+               <ul>
+                    <li ng-repeat="servdata in servicedata">
+                        <div>User ID : {{servdata.userId}}<br/>ID : {{servdata.id}}<br/>Title : <a href="#" ng-click="showdata($index)"> {{servdata.title}} </a><br/>Content : {{servdata.body}}</div>
+                    </li>
+                </ul>
+                    
+                
+            </div>
         </div>
         
         </div>

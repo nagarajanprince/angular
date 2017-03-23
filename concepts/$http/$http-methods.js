@@ -19,8 +19,8 @@ app.factory("listresource",function($http){
 /* service with $http */
     
 app.service("listservice",function($http){
-    this.data = function(){
-        return $http.get("http://jsonplaceholder.typicode.com/posts");
+    this.data = function(item){       
+        return $http.get("http://jsonplaceholder.typicode.com/posts/"+item);
     }
 });    
 
@@ -38,15 +38,14 @@ app.controller("maincontroller",function($scope,$http,listresource,listservice){
 
     /* service access */
 
-    listservice.data().then(function(res){
-         $scope.servicedata = res.data; 
-    });
-
-
-
-$scope.showdata = function(a){
-    console.log($scope.datalist[a].body);
-};  
+    $scope.showdata = function(a){
+        $scope.servicedata = {};
+         listservice.data($scope.datalist[a].id).then(function(res){
+             $scope.servicedata = res.data; 
+             console.log($scope.servicedata)
+             $scope.serdata = $scope.servicedata.body;
+        });
+    };  
     
       
 });
