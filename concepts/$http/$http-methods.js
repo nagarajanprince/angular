@@ -3,6 +3,8 @@
 
 var app = angular.module("mainapp",[]);
 
+/* factory with $http */
+
 app.factory("listresource",function($http){
     var data = {};
     
@@ -14,29 +16,37 @@ app.factory("listresource",function($http){
     
 });
 
+/* service with $http */
+    
+app.service("listservice",function($http){
+    this.data = function(){
+        return $http.get("http://jsonplaceholder.typicode.com/posts");
+    }
+});    
 
-$scope.showdata = function(a){
-    console.log(a);  
-};            
 /* Showing a resource */
 
 
 
 /* Listing resources */
 
-app.controller("maincontroller",function($scope,$http,listresource){
-   /* $http.get("http://jsonplaceholder.typicode.com/posts").then(function(res){
-        $scope.datalist = res.data;
-    });*/
-    
-    
-    
-    
+app.controller("maincontroller",function($scope,$http,listresource,listservice){
+    /* factory access */
     listresource.getdata().then(function(res){
          $scope.datalist = res.data; 
-        
-        
     });
+
+    /* service access */
+
+    listservice.data().then(function(res){
+         $scope.servicedata = res.data; 
+    });
+
+
+
+$scope.showdata = function(a){
+    console.log($scope.datalist[a].body);
+};  
     
       
 });
