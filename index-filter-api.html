@@ -49,6 +49,7 @@
                           
                 $http.get("http://jsonplaceholder.typicode.com/posts/").success(function(res){
                     $scope.data = res;
+					
                 });
 				$http.get("https://yts.ag/api/v2/list_movies.json").success(function(res){
 						$scope.ytf=res;

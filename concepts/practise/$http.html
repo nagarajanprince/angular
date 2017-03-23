@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>$http</title>
+	</head>
+	<body>
+		<div ng-app="mainapp">
+			<div ng-controller="maincontroller">
+				<ul ng-repeat="livelist in datalist">
+					<li ng-repeat="live in livelist.data">
+						<div>{{live.id}}<br/>
+						{{live.first_name}}<br/>
+						{{live.first_name}}<br/>
+						<img ng-src="{{live.avatar}}"/></div>
+					</li>
+				</ul>
+				<ul>
+					<li ng-repeat="live in livelist1">
+						<div>{{live.id}}<br/>
+						{{live.first_name}}<br/>
+						{{live.first_name}}<br/>
+						<img ng-src="{{live.avatar}}"/></div>
+					</li>
+				</ul>	
+			</div>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="$http.js"></script>
+	</body>
+</html>
