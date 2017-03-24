@@ -20,7 +20,7 @@ app.factory("listresource",function($http){
     
 app.service("listservice",function($http){
     this.data = function(item){       
-        return $http.get("http://jsonplaceholder.typicode.com/posts/"+item);
+        return $http.get("http://jsonplaceholder.typicode.com/posts/"+item);        
     }
 });    
 
@@ -39,14 +39,15 @@ app.controller("maincontroller",function($scope,$http,listresource,listservice){
     /* service access */
 
     $scope.showdata = function(a){
-        $scope.servicedata = {};
+        
          listservice.data($scope.datalist[a].id).then(function(res){
              $scope.servicedata = res.data; 
-             console.log($scope.servicedata)
-             $scope.serdata = $scope.servicedata.body;
+             console.log(res.data.body)
+                    
         });
-    };  
-    
+    };
+
+     
       
 });
 
