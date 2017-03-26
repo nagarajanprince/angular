@@ -40,7 +40,7 @@ app.controller("maincontroller",function($scope,$http,listresource,listservice){
 
     $scope.showdata = function(a){
         
-         listservice.data($scope.datalist[a].id).then(function(res){
+         listservice.data($scope.datalist[a].id-1).then(function(res){
              $scope.servicedata = res.data; 
              console.log(res.data.body)
                     
@@ -49,6 +49,15 @@ app.controller("maincontroller",function($scope,$http,listresource,listservice){
 
      
       
+});
+
+app.controller("contentchanges",function($scope,$http){
+    $scope.formsubmit=function(){
+       
+    $http.post("http://jsonplaceholder.typicode.com/posts",$scope.user).then(function(res){
+        console.log(res.data+"::"+res.status);
+    },function(res){ console.log(res.data+"::"+res.status);});
+    };    
 });
 
 /* Creating a resource */

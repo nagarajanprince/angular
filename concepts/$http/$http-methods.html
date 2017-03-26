@@ -35,7 +35,28 @@
         <div class="container">        
      
         <div class="" ng-app="mainapp">
-            <div  ng-controller="maincontroller">
+        <div ng-controller="contentchanges">
+            <h4>Creating a resource</h4>
+            <form class="form-v">
+                <div class="form-group">
+                    <input type="text" value="" ng-model="user.userID" placeholder="User Id"/>
+                </div>
+                <div class="form-group">
+                   
+                    <input type="text" value="" ng-model="user.id"  placeholder="Id"/>
+                </div>
+                <div class="form-group">
+                   
+                    <input type="text" value="" ng-model="user.title" placeholder="Title"/>
+                </div>
+                <div class="form-group">
+                    
+                    <textarea ng-model="user.body" placeholder="Body"></textarea>
+                </div>
+                <button type="submit" ng-click="formsubmit()" class="btn-primary">Submit</button>
+            </form>
+        </div>    
+         <div  ng-controller="maincontroller">
             <div class="blockres">
                 <h4>Listing Resources</h4>
                 <div class="searchid">
@@ -43,13 +64,13 @@
                 </div>
                 <ul>
                     <li ng-repeat="data in datalist | filter:{userId:UID}">
-                        <div>User ID : {{data.userId}}<br/>ID : {{data.id}}<br/>Title : <a href="#" ng-click="showdata(data.userId)"> {{data.title}} </a><br/>Content : {{data.body}}</div>
+                        <div>User ID : {{data.userId}}<br/>ID : {{data.id}}<br/>Title : <a href="#" ng-click="showdata(data.id)"> {{data.title}} </a><br/>Content : {{data.body}}</div>
                     </li>
                 </ul>
            </div>
-           <div class="blockres">
+           <div class="blockres"> 
                 <h4>Show Resources</h4>
-                        <div>User ID : {{servicedata.userId}}<br/>ID : {{servicedata.id}}<br/>Title : <a href="#" ng-click="showdata($index)"> {{servicedata.title}} </a><br/>Content : {{servicedata.body}}</div>
+                        <div>User ID : {{servicedata.userId}}<br/>ID : {{servicedata.id}}<br/>Title : <a href="#"> {{servicedata.title}} </a><br/>Content : {{servicedata.body}}</div>
                     
               </div>  
             </div>

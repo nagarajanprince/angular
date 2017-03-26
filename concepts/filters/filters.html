@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+    <b>uppercase</b> Format a string to upper case.  <br/>
+    <b>lowercase</b> Format a string to lower case.<br/>
+    <b>orderBy</b> Orders an array by an expression.<br/>
+    <b>filter</b> Select a subset of items from an array.<br/>
+    <b>currency</b> Format a number to a currency format.<br/>
+    <b>date Format</b> a date to a specified format.<br/>
+    
+    <b>json</b> Format an object to a JSON string.<br/>
+    <b>limitTo</b> Limits an array/string, into a specified number of elements/characters.<br/>
+   
+    <b>number</b> Format a number to a string.<br/>
+    
+      
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<p>The name is my first name Uppercase : {{ firstName | uppercase }}</p>
+
+<p>The name is my last name Lowercase : {{ lastName | lowercase }}</p>
+    
+noraml ng-repeat :
+    <ul>
+        <li ng-repeat="item in data">{{item.name}} :: {{item.country}}</li>        
+    </ul>
+<br/>
+    Filter (orderby) - name field
+    
+    <button ng-click="orderfield('name')">Name</button>
+    <button ng-click="orderfield('country')">Country</button>
+    
+    <p>{{price | currency}}</p>
+    
+     <ul>
+        <li ng-repeat="item in data | orderBy:myorder">{{item.name}} :: {{item.country}}</li>        
+    </ul>
+    
+  Filter by input value to match field or substring
+    <input type="text" value="" ng-model="typevalue" placeholder="search text"/>    
+      <ul>
+        <li ng-repeat="item in data | filter : typevalue">{{item.name}} :: {{item.country}}</li>        
+    </ul>
+    
+    
+</div>
+
+<script>
+angular.module('myApp', []).controller('personCtrl', function($scope) {
+     $scope.data = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+    $scope.firstName = "John",
+    $scope.lastName = "Doe",
+        
+        $scope.price = '5000';
+        
+    $scope.orderfield=function(value){
+        console.log("value");
+        $scope.myorder = value;
+    }    
+    
+});
+</script>
+
+</body>
+</html>

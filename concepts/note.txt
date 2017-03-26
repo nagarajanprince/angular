@@ -9,3 +9,18 @@ app.config(['$routeProvider', function ($routeProvider) {
     .otherwise({ redirectTo: '/' });
 
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+AJS Built in-services
+
+http://www.techstrikers.com/AngularJS/angularjs-built-in-services.php
