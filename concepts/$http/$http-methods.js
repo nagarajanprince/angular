@@ -60,6 +60,11 @@ app.controller("contentchanges",function($scope,$http){
     };    
 });
 
+
+var app = angular.module("subapp",[]);
+
+angular.bootstrap(document.getElementById("appid2"),["subapp"]);
+
 /* Creating a resource */
 
 /* Updating a resource */

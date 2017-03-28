@@ -24,3 +24,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 AJS Built in-services
 
 http://www.techstrikers.com/AngularJS/angularjs-built-in-services.php
+
+
+video AJS Reff
+
+https://egghead.io/courses
