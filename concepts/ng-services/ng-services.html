@@ -1,18 +1,36 @@
 <html>
 	<head>
-		<title>NG Built Services</title>
+		<title>ng Built Services</title>
+		<style type="text/css">
+			.dataview{				
+				min-height: 400px;
+			}
+			.dataview:nth-child(odd){
+				background-color: #ddd;
+			}
+			.dataview:nth-child(even){
+				background-color: #eee;
+			}
+			body{
+				transition: all 0.5s linear;
+			}
+
+		</style>
 	</head>
 	<body>
 		<div ng-app="mainapp">
 			<div ng-controller="scrollcontroller">
 			<h2>$anchorScroll</h2>
 				<ul>
-					<li ng-repeat="item in dataitem"><a>{{item.value}}</a>
+					<li ng-repeat="item in dataitem"><a ng-click="scrolled(item.country)">{{item.country}}</a>
 					</li>
 				</ul>
+				<div id="{{item.country}}" class="dataview" ng-repeat="item in dataitem">
+				</div>
 			</div>
+
 		</div>
-		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="angular.min.js"></script>		
 		<script type="text/javascript" src="ng-services.js"></script>
 	</body>
 </html>

@@ -1,14 +1,19 @@
 var app = angular.module("mainapp",[]);
 app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',function($scope,$location,$anchorScroll){
-	$scope.dataitem = {
-		'value':'scroll1',
-		'value':'scroll2',
-		'value':'scroll3',
-		'value':'scroll4',
-		'value':'scroll5',
-		'value':'scroll6'
-	}
+	$scope.dataitem = [
+        {country:'Norway'},
+        {country:'Sweden'},
+        {country:'England'},
+        {country:'Norway'},
+        {country:'Denmark'},
+        {country:'Sweden'},
+        {country:'Denmark'},
+        {country:'England'},
+        {country:'Norway'}
+        ];
 
-	console.log("called" + $scope.dataitem);
+	$scope.scrolled = function(value){
+		$location.hash(value);
+	};
 
 }]);
