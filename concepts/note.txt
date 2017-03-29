@@ -26,6 +26,9 @@ AJS Built in-services
 http://www.techstrikers.com/AngularJS/angularjs-built-in-services.php
 
 
+http://odetocode.com/blogs/scott/archive/2014/05/20/using-resolve-in-angularjs-routes.aspx
+
+
 video AJS Reff
 
 https://egghead.io/courses
