@@ -1,4 +1,6 @@
 var app = angular.module("mainapp",[]);
+
+/* $anchorScroll */
 app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',function($scope,$location,$anchorScroll){
 	$scope.dataitem = [
         {country:'Norway'},
@@ -17,3 +19,7 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',functi
 	};
 
 }]);
+
+app.controller("cookiecontroller",function($scope,$cookies,$cookieStore){
+    
+});
