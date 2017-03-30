@@ -39,18 +39,23 @@
                     <label>Age</label>
                     <input type="text" value="" ng-model="user.age"/><br/>
                     
-                    <button ng-click="writecookie()">Write cookie</button>
-                    <button ng-click="redcookie()">Write cookie</button>
-                    <button ng-click="removecookie()">Write cookie</button>
+                    <button ng-click="writecookie(user)">Write cookie</button>
+                    <button ng-click="redcookie(user)">red cookie</button>
+                    <button ng-click="removecookie(user)">remove cookie</button>
                     
-                    {{user | json}}
-                
+                    {{user | json}} <br/>
+
+                    cookies data
+                    {{cookiedata | json}}
                 </form>
+                
+                    
                 
             </div>
 
 		</div>
-		<script type="text/javascript" src="angular.min.js"></script>		
+		<script type="text/javascript" src="angular.min.js"></script>	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script> 
 		<script type="text/javascript" src="ng-services.js"></script>
 	</body>
 </html>
