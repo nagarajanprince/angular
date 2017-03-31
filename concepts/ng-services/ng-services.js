@@ -1,4 +1,4 @@
-var app = angular.module("mainapp",[]);
+var app = angular.module("mainapp",['ngCookies']);
 
 /* $anchorScroll */
 app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',function($scope,$location,$anchorScroll){
@@ -21,5 +21,13 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',functi
 }]);
 
 app.controller("cookiecontroller",function($scope,$cookies,$cookieStore){
-    
+    $scope.writecookie=function(){
+    		$cookies.put("dataitem","welcome $cookies");
+    };
+    $scope.redcookie=function(){
+    	console.log($cookies.get(dataitem));
+    };
+    $scope.removecookie=function(){
+    	$cookies.remove("dataitem");
+    };
 });
