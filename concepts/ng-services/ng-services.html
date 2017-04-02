@@ -14,14 +14,57 @@
 			body{
 				transition: all 0.5s linear;
 			}
+            
+            .left{
+                width: 35%;
+                display: block;
+                float: left;
+                padding: 15px;
+            }
+            
+            .left label{
+                font-size: 16px;
+                font-weight: 600;
+            }
 
+            .right{
+                width:60%;
+                display: block;
+                float: left;
+                padding: 15px;
+            }
+            .message{
+                width: 100%;
+            }
 		</style>
 	</head>
 	<body>
 		<div ng-app="mainapp">
-            <label><input type="radio" ng-model="bldservice" value="$anchorScroll">$anchorScroll</label>
-            <label><input type="radio" ng-model="bldservice" value="$cookies">$cookies</label>
-			<div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
+            <div class="message">
+                
+            </div>
+            
+            <div class="left">
+                <label><input type="radio" ng-model="bldservice" value="$cookies">$cookies</label>	This service is useful to write, read and delete browser cookies.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$window">$window</label>	This service is similar to reference to the browser's window object.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$filter">$filter</label>	This service is used for formatting data displayed to the user.
+                <label><input type="radio" ng-model="bldservice" value="$document">$document</label>	This service is wrapper for the browser's window.document object.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$location">$location</label>	This service is similar to window.location object and exposes the current URL in the browser address bar.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$log">$log</label>	This service is useful to write error, info, warning and debugging into the browser's console.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$parse">$parse</label>	This service is useful to convert AngularJS expression into a function.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$timeout">$timeout</label>	This service is just wrapper for window.setTimeout function so that it will be easy to override, remove or mocked for testing.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$interval">$interval</label>	This service is similar to JavaScript's window.setInterval function.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$exceptionHandler">$exceptionHandler</label>	This service is useful to handle an uncaught exception in angular expressions by overriding the default exception handler behaviour.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$templateCache">$templateCache</label>	This service is useful to set form within a form.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$cacheFactory">$cacheFactory</label>	This service evaluates specified expression when the user changes the input.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$anchorScroll">$anchorScroll</label>	This service is useful to set checkbox checked.<br/>
+                <label><input type="radio" ng-model="bldservice" value="$rootElement">$rootElement</label> 	This service is useful to access root element.<br/>
+            
+            </div>
+            <div class="right">
+                
+             
+                <div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
 			<h2>$anchorScroll</h2>
 				<ul>
 					<li ng-repeat="item in dataitem"><a ng-click="scrolled(item.country)">{{item.country}}</a>
@@ -52,7 +95,43 @@
                     
                 
             </div>
-
+            
+            <div ng-controller="filtercontroller" ng-show="bldservice == '$filter'">
+            
+                <input type="text" value="" ng-model="fltupper" placeholder="uppercase string"/><br/><br/>
+                <input type="text" value="" ng-model="flteramt" placeholder="Price"/><br/><br/>
+                <input type="text" value="" ng-model="fltlow" placeholder="lower case"/><br/><br/>
+                
+                {{fltupperdata}} ++ {{fltamount}}<br/>
+                {{fltlower}}
+            </div>
+                
+                
+            <div ng-controller="windowcontroller" ng-show="bldservice == '$window'">
+            
+               <button ng-click="callfunction()">Call $window</button>
+            </div> 
+                
+              <div ng-controller="locationcontroller" ng-show="bldservice == '$location'">
+                absurl = {{locabsurl}}<br/>
+                  protocol = {{locprot}}<br/>
+                  host = {{host}}<br/>port = {{port}}<br/>path = {{path}}<br/>
+                  searchObject = {{searchObject}}<br/>hash = {{hash}}
+               
+            </div>     
+                
+            <div ng-controller="documentcontroller" ng-show="bldservice == '$document'">
+            
+               {{title}}<br/><br/>{{body}}<br/><br/>
+                {{cookieview}}
+            </div>
+                
+            <div ng-controller="logcontroller" ng-show="bldservice == '$log'">
+                
+                    
+            </div>
+            </div>
+            
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>	
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script> 
