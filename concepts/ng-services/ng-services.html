@@ -40,6 +40,7 @@
 	</head>
 	<body>
 		<div ng-app="mainapp">
+
             <div class="message">
                 
             </div>
@@ -65,6 +66,13 @@
                 
              
                 <div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
+
+            <label><input type="radio" ng-model="bldservice" value="$anchorScroll">$anchorScroll</label>
+            <label><input type="radio" ng-model="bldservice" value="$cookies">$cookies</label>
+
+            
+			<div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
+
 			<h2>$anchorScroll</h2>
 				<ul>
 					<li ng-repeat="item in dataitem"><a ng-click="scrolled(item.country)">{{item.country}}</a>
@@ -76,11 +84,7 @@
             
             <div ng-controller="cookiecontroller" ng-show="bldservice == '$cookies'">
             <h2>$cookies</h2>
-                <form>
-                    <label>Name</label>
-                    <input type="text" value="" ng-model="user.name"/><br/>
-                    <label>Age</label>
-                    <input type="text" value="" ng-model="user.age"/><br/>
+               
                     
                     <button ng-click="writecookie(user)">Write cookie</button>
                     <button ng-click="redcookie(user)">red cookie</button>
@@ -91,8 +95,6 @@
                     cookies data
                     {{cookiedata | json}}
                 </form>
-                
-                    
                 
             </div>
             

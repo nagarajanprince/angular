@@ -29,12 +29,11 @@ app.controller("cookiecontroller",function($scope,$cookies,$cookieStore,$window)
             console.log($cookieStore.get(item));
             $scope.cookiedata=$cookieStore.get(item);
         }else{
-            $window.alert(":: No Cookie");
+            $Window.alert(":: No Cookie");
         }
         
     };
     $scope.removecookie=function(item){
-        
         $cookieStore.remove(item)
     };
 });
