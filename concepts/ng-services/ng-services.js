@@ -11,7 +11,7 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',functi
         {country:'Sweden'},
         {country:'Denmark'},
         {country:'England'},
-        {country:'Norway'}
+        {country:'Norway'} 
         ];
 
 	$scope.scrolled = function(value){
