@@ -22,16 +22,17 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll','$wind
 
 app.controller("cookiecontroller",function($scope,$cookies,$cookieStore){
     $scope.writecookie=function(item){
-        $cookieStore.put(item,item);
+        //$cookieStore.put(item,item);
+        $cookieStore.put("dataitem","welcome");
     };
     $scope.redcookie=function(item){
         if(item != undefined){
-            console.log($cookieStore.get(item));
-            $scope.cookiedata=$cookieStore.get(item);
+           // console.log($cookieStore.get(item));
+            //$scope.cookiedata=$cookieStore.get(item);
+             console.log($cookieStore.get(dataitem));
         }else{
-            $Window.alert(":: No Cookie");
-        }
-        
+            
+        }        
     };
     $scope.removecookie=function(item){
         $cookieStore.remove(item)
