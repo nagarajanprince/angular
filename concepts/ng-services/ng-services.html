@@ -63,12 +63,7 @@
             </div>
             <div class="right">
                 
-             
-                <div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
-
-            <label><input type="radio" ng-model="bldservice" value="$anchorScroll">$anchorScroll</label>
-            <label><input type="radio" ng-model="bldservice" value="$cookies">$cookies</label>
-
+          
             
 			<div ng-controller="scrollcontroller" ng-show="bldservice == '$anchorScroll'" >
 
@@ -83,10 +78,13 @@
             
             <div ng-controller="cookiecontroller" ng-show="bldservice == '$cookies'">
             <h2>$cookies</h2>
-               
+               		
+               		<input type="text" value="" ng-model="user.name" placeholder="name"><br/>
+               		<br/>
+               		<input type="text" value="" ng-model="user.age" placeholder="age"><br/><br/>
                     
                     <button ng-click="writecookie(user)">Write cookie</button>
-                    <button ng-click="redcookie(user)">red cookie</button>
+                    <button ng-click="readcookie(user)">red cookie</button>
                     <button ng-click="removecookie(user)">remove cookie</button>
                     
                     {{user | json}} <br/>
