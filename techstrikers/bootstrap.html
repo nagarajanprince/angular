@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>AJS- Bootstrap</title>
+	</head>
+	<body>
+		<div ng-app="mainapp">
+
+			Value 1 : {{1+2}}<br/>
+
+		</div>
+		<div ng-app="subapp1">
+			Value 2 : {{102+520}}
+
+		</div>  
+
+		<div ng-app="subapp2">
+			Value 3 : {{10202+520}}
+
+		</div>  
+
+		<div ng-app="subapp3">
+			Value 4 : {{1000002+520}}
+
+		</div>  
+
+		<div ng-app="subapp4">
+			Value 5 : {{102.02+520}}
+
+		</div>  
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script type="text/javascript">
+		
+			var app = angular.module("mainapp",[]);
+
+			var app = angular.module("subapp1",[]);
+
+			var app = angular.module("subapp2",[]);
+
+			var app = angular.module("subapp3",[]);
+
+			var app = angular.module("subapp4",[]);
+
+			angular.element(document).ready(function(){
+				angular.bootstrap(document,['subapp1','subapp2','subapp3','subapp4']);
+			});
+			
+
+	</script>
+	</body>
+</html>
