@@ -1,0 +1,15 @@
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/
+
+http://javascript.info/object-oriented-programming
+http://viralpatel.net/blogs/object-oriented-programming-with-javascript/
+http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
+https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know
+
+
+Anular2
+
+http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial
+
+full stack dev skills
+
+https://medium.com/coderbyte/a-guide-to-becoming-a-full-stack-developer-in-2017-5c3c08a1600c

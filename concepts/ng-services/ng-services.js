@@ -11,7 +11,7 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',functi
         {country:'Sweden'},
         {country:'Denmark'},
         {country:'England'},
-        {country:'Norway'}
+        {country:'Norway'} 
         ];
 
 	$scope.scrolled = function(value){
@@ -22,14 +22,17 @@ app.controller("scrollcontroller",['$scope', '$location', '$anchorScroll',functi
 
 app.controller("cookiecontroller",function($scope,$cookies,$cookieStore,$window){
     $scope.writecookie=function(item){
+    	console.log(item);
         $cookieStore.put(item,item);
     };
-    $scope.redcookie=function(item){
+    $scope.readcookie=function(item){
+    	console.log(item);
+     console.log($cookieStore.get(item));
         if($cookieStore.get(item) != undefined){
             console.log($cookieStore.get(item));
             $scope.cookiedata=$cookieStore.get(item);
         }else{
-            $Window.alert(":: No Cookie");
+            $window.alert(":: No Cookie");
         }
         
     };
@@ -55,7 +58,7 @@ app.controller("filtercontroller",function($scope,$filter){
     
 });
 
-app.controller("windowcontroller",function($scope,$window,$document){
+app.controller("windowcontroller",function($scope,$window){
     
      $scope.callfunction=function(){
          $window.alert("This value alert by $window");
@@ -82,10 +85,9 @@ app.controller("locationcontroller",function($scope,$location){
 });
 
 app.controller("logcontroller",function($scope,$log){
-   $log.log('Log Message.');  
-$log.error('Log Error.');  
-$log.info('Log Info.');  
-$log.warn('Log Warning.');  
-$log.debug('Log Debugging.');  
+	$log.log('Log Message.');  
+	$log.error('Log Error.');  
+	$log.info('Log Info.');  
+	$log.warn('Log Warning.');  
+	$log.debug('Log Debugging.'); 
 });
-
