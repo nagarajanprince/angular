@@ -1,1 +1,3 @@
 http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
+
+http://www.journaldev.com/6225/angularjs-routing-example-ngroute-routeprovider
