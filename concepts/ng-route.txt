@@ -1,0 +1,46 @@
+var myApp = angular.module('app', ['ngRoute']);
+
+myApp.config(function($routeProvider){
+    $routeProvider
+    .when('/', {
+        templateUrl: 'login-screen.html'
+    })
+    .when('/welcome-screen', {
+        resolve: {
+            test: function($location, $rootScope) {
+                if($rootScope.valid !== true) {
+                    $location.path('/login-screen');
+                }
+            }
+        },
+        templateUrl: 'welcome-screen.html'
+    })
+    .otherwise({
+        redirectTo: '/'
+    })
+});
+
+myApp.controller('my-controller', function($scope, $location, $rootScope){
+    $scope.onSubmit = function() {
+       if( $scope.username == 'satheesh' && $scope.password == 'welcome') {
+           $rootScope.valid = true;
+           $location.path('/welcome-screen');
+       }else {
+           alert('User name and password is incorrect');
+       }
+    };
+    
+    $scope.displayNumber = function(arg) {
+        var array = new Array(arg);
+        return array;
+    };
+    
+    $scope.rangeNumber = function(min,max) {
+        var input = [];
+        for( i=min; i<=max; i++) {
+            input.push(i);
+        }
+        return input;
+    };
+    
+});
