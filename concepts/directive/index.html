@@ -1,0 +1,59 @@
+<html>
+    <head>
+        
+        <style>
+            .red{
+                color:red;
+            }
+        </style>
+    
+    </head>
+    <body>
+    <div ng-app="mainapp">
+        <div ng-controller="maincontroll">
+        <input  title="text" ng-model="typename" value=""/>         
+        <welcome>Data1</welcome><br/>
+        <span welcome>Data2</span><br/>
+        <div class="welcome">data</div>
+        <!--directive:welcome-->
+            
+            <div winner_list></div>
+            
+        
+        </div>
+    </div>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" type="text/javascript"></script>
+    
+    <script>
+        var app = angular.module("mainapp",[]);
+        app.controller("maincontroll",function($scope){
+            $scope.name = $scope.typename;
+            $scope.top="120";
+        });
+        app.directive("winnerList",function(){
+            return{
+                restrict:'A',                
+                replace:false,
+                template:"No One",
+            };
+        });
+        app.directive('welcome',function(){
+            return{
+                restrict:'EAC',
+                replace:false,
+                scope:true,
+                templateUrl:'template1.html',
+                controller:function($scope){
+                    $scope.name ="God";
+                },
+                link:function(scope,elem,attrs){
+                    elem.bind("click",function(){
+                        elem.toggleClass("red")
+                    });
+                }
+            };
+        });
+    </script>
+    </body>
+</html>
