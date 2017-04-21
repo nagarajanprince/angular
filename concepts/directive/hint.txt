@@ -1,1 +1,5 @@
 http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/
+
+http://www.c-sharpcorner.com/UploadFile/17e8f6/creating-custom-directives-in-angularjs240/
+
+http://www.techstrikers.com/AngularJS/angularjs-scope-methods.php
